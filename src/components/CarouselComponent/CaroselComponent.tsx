@@ -40,7 +40,7 @@ export default function CarouselComponent() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [animationDirection, setAnimationDirection] = useState<null | "left" | "right">(null);
     const [showHeartRain, setShowHeartRain] = useState(true);
-    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    //const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set());
     const [allImagesLoaded, setAllImagesLoaded] = useState(false);
 
@@ -98,7 +98,7 @@ export default function CarouselComponent() {
         if (animationDirection) return;
         
         setAnimationDirection('right');
-        setIsAutoPlaying(false);
+        //setIsAutoPlaying(false);
         
         setTimeout(() => {
             setCurrentIndex((prevIndex) => 
@@ -108,7 +108,7 @@ export default function CarouselComponent() {
         }, 800);
 
         // Reativar auto-play após 10 segundos
-        setTimeout(() => setIsAutoPlaying(true), 10000);
+        //setTimeout(() => setIsAutoPlaying(true), 10000);
     }, [animationDirection, items.length]);
 
     const goToNext = useCallback(() => {
@@ -129,7 +129,7 @@ export default function CarouselComponent() {
         
         const direction = index > currentIndex ? 'left' : 'right';
         setAnimationDirection(direction);
-        setIsAutoPlaying(false);
+        //setIsAutoPlaying(false);
         
         setTimeout(() => {
             setCurrentIndex(index);
@@ -137,7 +137,7 @@ export default function CarouselComponent() {
         }, 800);
 
         // Reativar auto-play após 10 segundos
-        setTimeout(() => setIsAutoPlaying(true), 10000);
+        //setTimeout(() => setIsAutoPlaying(true), 10000);
     }, [animationDirection, currentIndex]);
 
     const getPreviousIndex = useCallback(() => {
@@ -155,7 +155,7 @@ export default function CarouselComponent() {
             if (e.key === 'ArrowRight') goToNext();
             if (e.key === ' ') {
                 e.preventDefault();
-                setIsAutoPlaying(prev => !prev);
+                //setIsAutoPlaying(prev => !prev);
             }
         };
 
